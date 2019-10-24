@@ -77,8 +77,8 @@ __loop:
 		return
 	} else {
 		task := s.taskQueue.Remove(elem).(*ztask)
-		go s.runTask(task)
 		s.reschedule(task)
+		go s.runTask(task)
 		goto __loop
 	}
 }
